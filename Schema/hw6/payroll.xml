@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE payroll SYSTEM "employee.dtd">
+<payroll>
+<employee>
+  <name>
+    <first>Brad</first>
+    <middle>T</middle>
+    <last>Vander Zanden</last>
+  </name>
+  <spouse>
+      <first>Yifan</first>
+      <last>Tang</last>
+  </spouse>
+  <tax-status>married</tax-status>
+  <salary>110000.00</salary>
+  <date-of-birth>1964-02-03</date-of-birth>
+  <manager title="professor">
+    <group>Computer Science</group>
+    <yrsAtRank>8</yrsAtRank>
+  </manager>
+</employee>
+
+<employee>
+  <name>
+    <first>Don</first>
+    <last>Juan</last>
+  </name>
+  <child>
+    <first>Mary</first>
+    <middle>H</middle>
+    <last>Lamb</last>
+  </child>
+  <child>
+    <first>Fred</first>
+    <last>Flintstone</last>
+  </child>
+  <tax-status>headOfHousehold</tax-status>
+  <salary>1553.83</salary>
+  <date-of-birth>1980-07-07</date-of-birth>
+  <staff>
+    <skill>Carpentry</skill>
+    <skill>Welding</skill>
+    <skill>Plumbing</skill>
+  </staff>
+</employee>
+</payroll>

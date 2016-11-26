@@ -1,0 +1,29 @@
+David Baldwin 
+SVN #14 commitment
+
+
+-I created the boolean operation AndExp and OrExp but I am not sure if 
+I implemented them correctly.
+
+-I copy and pasted what she gave for the interpreter code and it should work
+
+-I created the VarExp using what I designed for the hash.java file i created
+earlier...the VarExp file should work fine 
+
+-RowRef has been created it should work
+-UndefinedCellException has been created it should work
+
+-Exp works as well and Binary Exp  should have no problem working
+- I took them from small driver test I had created using my code when I
+thought you still had yet to submit the parser....Kristy's interpreter 
+cleared up a question I had.
+
+
+
+-====What we need ====
+--So what do we need...you need to go over the code and look and see if it makes sense...see if u can make it look better...add comments, etc
+
+We still need Interpreter to work various inputs, I have yet to implement that functionality...I think it woiuld take 2 hours max to do that....
+Im not sure if  I will be up at 8:00am but I do know I will be in class for sure...
+
+

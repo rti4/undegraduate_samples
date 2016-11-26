@@ -1,0 +1,36 @@
+<exam>
+	<!-- essay using as many sentence lines as need and requiring atleast 1 sentence -->
+	<essay>*
+		<sentence>+
+		</sentence>
+	</essay>
+	
+	<!-- a word bank that contains a list of words and requiring atleast 1 word in the bank-->
+	<word_bank>*
+		<word>+
+		</word>
+	</word_bank>
+	
+	<!-- essay using as many sentence lines as need and allowing only 1 answer-->
+	<!-- answer follows -->
+	<sentence_ans>*
+		<sentence>+
+		</sentence>
+		<answer>? </answer>
+	</sentence_ans>
+	
+	<!-- essay using code and allowing code only 1 answer-->
+	<essay_code>*
+		<code>+
+		</code>
+		<answer>? </answer>
+	</essay_code>
+	
+	
+	<!-- column of answers, this is useful for word banks but can also be used to present only 1 answer-->
+	<ans_col>*
+		<answer>+ 
+		</answer>
+	</ans_col>
+
+</exam>

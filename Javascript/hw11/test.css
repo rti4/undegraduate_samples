@@ -1,0 +1,28 @@
+body{
+	
+
+
+
+}
+
+div.center{
+	text-align:center;
+	width:60%;
+	background-color: blue;
+}
+
+div.instruction{
+	background-color: red;
+	width: 400px;
+	height: 200px;
+	text-align: center;
+	float: left;
+
+}
+
+div.checkboxes{
+	background-color:yellow;
+	float:left;
+
+
+}

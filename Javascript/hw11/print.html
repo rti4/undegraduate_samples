@@ -1,0 +1,131 @@
+<html>
+<head><title></title>
+
+
+<script type="text/javascript">
+	
+
+function gray_out(print){
+
+	/*alert("successful call of gray_out");*/
+
+	document.print.from_textbox.disabled=true;
+
+	document.print.to_textbox.disabled=true;
+
+	/*document.form1.address2.disabled=false;*/
+
+
+}
+
+
+
+function highlight(print){
+
+	/*alert("successful call of hightlight");*/
+	document.print.from_textbox.disabled=false;
+
+	document.print.to_textbox.disabled=false;
+
+	document.print.from_textbox.focus();
+
+	document.print.from_textbox.select();
+
+	document.print.to_textbox.focus();
+
+	document.print.to_textbox.select();
+
+}
+
+
+
+function set_to_from(print){
+
+	/*alert("set_to_from fired");*/
+
+	if((print.to_textbox.value=="")||(print.to_textbox.value < print.from_textbox.value)){
+
+		document.print.to_textbox.value=document.print.from_textbox.value;
+
+		//alert("to empty");
+	}
+}
+
+function set_from_to(print){
+	
+
+	if((print.from_textbox.value=="") && (print.to_textbox.value > print.from_textbox.value)){
+
+		document.print.from_textbox.value=document.print.to_textbox.value;
+		document.title="";
+		document.print.from_textbox.style.backgroundColor="white";
+		
+
+
+	}
+else if(print.from_textbox.value > print.to_textbox.value){
+
+		//alert("from > to");
+		document.print.from_textbox.style.backgroundColor = "yellow";
+
+		//document.print.from_textbox.style.color="#123123";
+		document.title = "the to value must be greater than or equal to the from value";
+		//alert(document.title);
+		//document.print.to_textbox.value=document.print.from_textbox.value;
+
+	}else{
+		//alert("neither of the options");
+		document.title="";
+		document.print.from_textbox.style.backgroundColor="white";
+		
+	}
+	
+
+
+	
+}
+
+
+</script>
+
+
+
+
+
+</head>
+
+
+<body>
+
+
+<form name="print" method="post" action="">
+
+<div><input type="radio" name="option" value="all" onClick="gray_out(print)"/> All </div>
+
+
+<div><input type="radio" name="option" value="from" onClick="highlight(print)" checked/> From </div>
+
+<div><input type="text" name="from_textbox" onChange="set_to_from(print)"/>
+</div>
+
+<div><label > To </label> </div>
+
+<div><input type="text" name="to_textbox" onChange="set_from_to(print)"/></div>
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+

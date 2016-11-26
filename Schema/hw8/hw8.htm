@@ -1,0 +1,81 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<style> 
+ol ol {list-style-type: lower-alpha; }
+</style>
+</head><body><center>
+<h2>Homework 8</h2>
+</center>
+<p>
+</p><ul>
+<li> <b>Please note that in the following exercises, the cdcatalog is different 
+   then the one presented in class, since it is organized by cd rather than 
+   by artist</b>.
+</li><li> If you are using Safari, the cdcatalog.xml file may not show up formatted
+     nicely in your browser. If you view the page source, or save the file
+     and open it using a text editor, it will be formatted nicely.
+</li></ul>
+<hr>
+<ol>
+<li> (<b>40 points, 20 points for each parser</b>) This problem is a 
+     warm-up exercise with PHP's expat and simpleXML
+     parser. Write separate scripts named <tt>expatformatter.php</tt> and
+<tt>simpleformatter.php</tt> that read an xml file that matches the
+<a href="http://www.cs.utk.edu/%7Ebvz/cs460/hw/hw8/cdcatalog.xml">cdcatalog.xml</a> file specification and produces an html document with the
+following characteristics:
+<p>
+</p><ol>
+<li> The html page starts with a centered header that reads "CD Album Report".
+</li><li> The html page then consists of a list of cds, separated by horizontal
+     rules (hr tags). 
+</li><li> Each cd should have the following information listed
+     <p>
+     </p><ol class="alpha">
+     <li> CD title as a left-justified, h3 header.
+     </li><li> An unordered list with the following bullets:
+          <p>
+	  </p><ul>
+	  <li> artist
+	  </li><li> price: blue if the price is &lt;= $9.00 and green otherwise.
+	  </li><li> year released
+	  </li></ul>
+     </li></ol>
+     <p>
+     A sample html page for the cdcatalog.xml file is shown
+     <a href="http://www.cs.utk.edu/%7Ebvz/cs460/hw/hw8/formattedcatalog.html">here</a>
+</p></li></ol>
+<p>
+</p></li><li> (<b>30 points</b>) Using the simpleXML parser, write a php script named 
+<tt>avgpriceSimple.php</tt> that reads an xml
+file structured like the <a href="http://www.cs.utk.edu/%7Ebvz/cs460/hw/hw8/cdcatalog.xml">cdcatalog.xml</a> and produces
+an ascii report similar to the one in class where you have the headings
+Artist and Avg. Price and for each artist you print the artist's name in
+the format "Lastname, Firstname" and then the average price of that artist's
+cds. The output should be in alphabetical order by lastname. If two artists
+have the same last name it does not matter which one appears first in the
+output. You will note that this problem is a bit more complicated than the
+one presented in class because 1) the cdcatalog is organized by cd rather than
+by artist, and 2) the artist's name is not divided into a first and lastname
+for you. To handle the first problem, I suggest you keep two associative 
+arrays of artists, one for
+the number of cds encountered thus far and one for the total value of the
+cds. To handle the second problem I suggest that you use a Perl-style regular
+expression to separate the first and last names. You may assume that the
+first name is a single first name with no whitespace. If there is only one
+name, like Smiley or Dr.Hook, then you should assume that it is a firstname.
+You should suppress the comma if the artist has no last name (i.e., only the
+firstname should be printed).
+<p>
+Once you have finished processing the cd's you can sort one of the
+associative arrays by lastname (use an artist's first name if the artist
+only has a first name), then iterate through the array,
+calculate the average price for each author, and print each author and the
+average price for that author's cds.
+</p><p>
+</p></li><li> (<b>30 points</b>) Repeat the previous problem except that you should now
+use the PHP DOM parser to solve the problem. Name your php script 
+<tt>avgpriceDOM.php</tt>.
+
+</li></ol>
+     
+</body></html>

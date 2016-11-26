@@ -1,0 +1,180 @@
+<html>
+<head><title></title>
+<link rel="stylesheet" type="text/css" href="test.css" />
+
+<script type="text/javascript">
+
+	function start_game(){
+		//alert("Start Game");
+		for(var i=1; i <= 10; i++){
+			checkbox_id = "checkbox" + i;
+			element_id = "case"+i;		
+			document.getElementById(element_id).disabled  = false;
+			document.getElementById(checkbox_id).disabled = false;
+		}
+	}
+
+	function rand_value(){
+		//element_value = document.getElementById('case1').value;
+		element_number = Math.random()*10;
+		element_number = Math.round(element_number);
+		return element_number;
+	}
+
+
+var suitcase=new Array(.01, 1.0, 5.0, 10.0, 100.0, 1000.0,10000.0, 100000.0, 500000.0, 1000000.0);
+var assign_suitcase= new Array(1,2,3,4,5,6,7,8,9,10);
+var assign_button = new Array(10);
+var first =-1;
+var suitcase_id;
+var suitcase_cost;
+var rand_digit;
+var overwrote_digit;
+	function check_suitcase(){
+		for(var i=0; i < suitcase.length; i++){
+			//alert(suitcase[i]);
+			rand_digit = rand_value();
+			overwrote_digit = assign_suitcase[rand_digit-1];
+			assign_suitcase[rand_digit-1] =assign_suitcase[i];
+			assign_suitcase[i] = overwrote_digit;
+					
+		}
+		
+
+	}
+
+	function check_assign_suitcase(){
+		for(var i=0; i < assign_suitcase.length; i++){
+//			document.write(assign_suitcase[i] + "<br/>");
+					
+		}
+	}
+	
+	function stop_game(){
+		for(var i=1; i <= 10; i++){
+			element_id = "case"+i;
+			checkbox_id = "checkbox" + i;	
+			document.getElementById(element_id).disabled  = true;
+			document.getElementById(checkbox_id).disabled = true;
+		}
+	}
+
+	function check_buttons(){
+		document.write(assign_button.length);
+	}
+
+	
+	function disable_button(button){
+		if(first == -1){
+			//its the first disabled button
+			first = 0;
+			suitcase_id = "case" +button;
+			checkbox_id = "checkbox" + button;
+			document.getElementById(suitcase_id);
+			cost_element = assign_suitcase[button-1];
+			document.getElementById(suitcase_id).disabled  = true;
+			document.getElementById(checkbox_id).disabled = true;	
+		
+			document.getElementById(suitcase_id).style.color="silver";
+			document.getElementById(suitcase_id).style.backgroundColor = "blue";
+			document.getElementById(checkbox_id).checked = true;
+
+		}else{
+			first =1;
+			suitcase_id = "case" +button;
+			checkbox_id = "checkbox" + button;
+			document.getElementById(suitcase_id);
+			cost_element = assign_suitcase[button-1];
+			document.getElementById(suitcase_id).disabled  = true;
+			document.getElementById(checkbox_id).disabled = true;	
+		
+			document.getElementById(suitcase_id).style.color="silver";
+			document.getElementById(suitcase_id).style.backgroundColor = "blue";
+			document.getElementById(checkbox_id).checked = true;
+			
+			var num_opened;
+			var num_closed;
+			for(var i=1; i <= 10; i++){
+				checkbox_id = "checkbox" + i;
+				element_id = "case"+i;		
+				if(document.getElementById(element_id).disabled  == true){
+					num_opened++;
+					alert(element_id + "is open");
+					
+				}else{
+					num_closed++;
+					alert(element_id + "is closed");
+					
+				}
+				
+			}
+			
+	
+
+			
+		}
+			
+		
+		
+	}
+
+
+
+</script>
+
+
+</head>
+<body onLoad="check_suitcase(); check_assign_suitcase(); stop_game();">
+<div class="center">
+	<div>
+		<div> Welcome to <h2>Deal OR NO DEAL!</h2></div>
+		<div> Here are the rules:</div>
+		<div> To begin playing please the "Start Game" button </div>
+		<div> There are 10 suitcase that you can choose from. Each suitcase has a particular monetary value </div>
+		<div> To pick up a suitcase, simply click one of the buttons to the left labeled "1"- "10". <div>
+		<div> You may keep your current suitcase til the end of the game or sell it to the banker. </div>
+		<div> When you select a particular suitcase the value of the money inside that suitcase is revealed in place of the suitcase number </div>
+		<div> After each suitcase selection the banker will make an offer to you in order to obtain the suitcase you have </div> 
+		<div> At that point in time you are to select the "Deal" or "No Deal" button to let the banker know if he will obtain your suitcase or not </div>
+		<div> If you select "Deal" the game ends and the monetary worth of the suitcase is revealed </div>
+		<div> Otherwise the game continues and you get to select one of the other suitcases </div>
+		<div> Once there are no more suitcase to choose from the game will end and the suitcase you have at that moment is revealed </div>
+	</div>
+	<input type="button" value="Start Game" onClick="start_game()"/>
+	<hr width="50%"/>
+	<div class="instruction">
+		<div> Offer: <input type="text" value ="" maxlength="7" /></div>
+		<div>	<input type="button" id="case1" value="1" onclick="disable_button(1)"/><input type="button" value="2" id="case2" onClick="disable_button(2)"/></div>
+		<div>	<input type="button" value="3" id="case3" onClick="disable_button(3)"/><input type="button" value="4" id="case4" onClick="disable_button(4)"/></div>
+		<div>	<input type="button" value="5" id="case5" onClick="disable_button(5)"/><input type="button" value="6" id="case6" onClick="disable_button(6)"/></div>
+		<div>	<input type="button" value="7" id="case7" onClick="disable_button(7)"/><input type="button" value="8" id="case8" onClick="disable_button(8)"/></div>
+		<div> 	<input type="button" value="9" id="case9" onClick="disable_button(9)"/><input type="button" value="10" id="case10" onClick="disable_button(10)"/></div>
+		<div><input type="button" value="Deal" id="deal" /><input type="button" value="No Deal" id="no_deal" /></div>
+	</div>		
+	
+
+	<!-- textbox column -->
+	<div class="checkboxes" />
+		<div> <input type="checkbox" id="checkbox1" value=".01"/>$.01</div>
+		<div> <input type="checkbox" id="checkbox2" value="1"/>$1</div>
+		<div> <input type="checkbox" id="checkbox3" value="5"/>$5</div>
+		<div> <input type="checkbox" id="checkbox4" value="10"/>$10</div>
+		<div> <input type="checkbox" id="checkbox5" value="100"/>$100</div>
+		<div> <input type="checkbox" id="checkbox6" value="1000"/>$1,000</div>
+		<div> <input type="checkbox" id="checkbox7" value="10000"/>$10,000</div>
+		<div> <input type="checkbox" id="checkbox8" value="100000"/>$100,000</div>
+		<div> <input type="checkbox" id="checkbox9" value="500000"/>$500,000</div>
+		<div> <input type="checkbox" id="checkbox10" value="1000000"/>$1,000,000</div>
+
+	</div>
+	
+	
+	
+</div>
+
+
+
+
+
+</body>
+</html>

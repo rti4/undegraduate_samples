@@ -1,0 +1,20 @@
+
+<!DOCTYPE payroll [
+    <!ELEMENT payroll (employee*)>
+	<!ELEMENT employee (name,spouse?,child*,tax-status,ssn,salary,date-of-birth,(manager|staff))>
+	<!ELEMENT name (first,middle?,last)>
+	<!ELEMENT first (#PCDATA)>
+	<!ELEMENT middle (#PCDATA)>
+	<!ELEMENT last (#PCDATA)>
+	<!ELEMENT spouse (first,middle?,last)>
+	<!ELEMENT child (first,middle,last)>
+	<!ELEMENT tax-status ((married | single | headOfHousehold | separated))>
+	<!ELEMENT ssn (#PCDATA)>
+	<!ELEMENT salary (#PCDATA)>
+	<!ELEMENT date-of-birth (#PCDATA)>	
+	<!ELEMENT manager (#PCDATA)>	
+	<!ELEMENT group (#PCDATA)>
+	<!ELEMENT yrsAtRank (#PCDATA)>
+	<!ELEMENT staff (skill)>
+	<!ELEMENT skill (#PCDATA+)>	
+]>

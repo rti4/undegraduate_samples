@@ -1,0 +1,202 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<style>
+ol ol { list-style-type: lower-alpha; }
+ol ol ol { list-style-type: decimal; }
+</style>
+</head><body>Place the answer to problem 1 in a file named <b>answers</b>. The
+answers to the other problems should be put in the files specified by the
+problem.
+<p>
+</p><ol>
+<li> (<b>5 points</b>) Explain what is accomplished by the following line of Perl code:
+     <pre>	$line =~ s/&lt;[^&gt;]*&gt;//g;
+     </pre>
+    Show a simpler way to write the search pattern.
+<p>
+</p></li><li> (<b>15 points</b>) Write a Perl program named <b>center.perl</b>
+        that searches for all header tags of the form 
+	&lt;h1&gt;, &lt;h2&gt;, or &lt;h3&gt; that start at the beginning of a line
+	in an html file. Place the tags &lt;center&gt;
+	and &lt;/center&gt; around all such headers. The headers may span
+	more than one line in the file. For example, your program should
+	replace:
+	<pre>	&lt;h1&gt; An Introduction to Perl
+		and Python 101 &lt;/h1&gt;.
+	</pre>
+	with: 
+	<pre>	&lt;center&gt;&lt;h1&gt; An Introduction to Perl
+		and Python 101 &lt;/h1&gt;&lt;/center&gt;.
+	</pre>
+	You do not have to worry about nested header tags. You should read
+	the file name from the command line and write to stdout.
+	<p>
+	<b>hint</b>: You can use the following combination of modifier flags
+	at the end of your search pattern to write a single pattern for
+	performing the substitutions:
+	</p><ol>
+	<li> s: wrap the search past newline characters
+	</li><li> m: let the ^ match expressions starting after a /n character in a string
+	</li><li> g: perform multiple substitutions
+	</li></ol>
+<p>
+</p><p>
+</p></li><li> <b>(20 points)</b> In this problem you are going to create a web page that takes a person's
+	address and takeout order and communicates it to the server. You are
+	also going to write a Perl program that creates a dynamic html page
+	which echos the address and the calculated cost of the order.
+	<p>
+	</p><ul> 
+	<li> Web page: Create an html file named
+		<b>icecream.html</b> that 1) welcomes the viewer to
+		"Brad's Fantastic Ice Cream", 2) provides type in text boxes for
+		the street address and person's phone number, and 3) provides
+		check boxes for Brad's fine flavors, which will be
+		Vanilla, Chocolate, Strawberry, Mocha Chip, and Coffee
+		Heath Bar Crunch. The choices should not be mutually 
+		exclusive because Brad realizes that one might want multiple
+		scoops. When the user presses the "Submit" button your
+		Perl program should be called. Use GET as your submission
+		method.
+	<p>
+	</p></li><li> Perl program: Create a Perl program named <b>icecream.cgi</b>
+		that takes the information
+		provided by the web page and creates a dynamic web page
+		with the following information:
+	     <p>
+	     </p><ol>
+	     <li> Street address and phone number
+	     </li><li> The requested flavors. If Brad's does not provide that
+		    flavor then scold the user for trying to spoof your
+		    program by bypassing the html page.
+	     </li><li> The cost of the flavors before tax: Each scoop costs
+		    $1.25.
+	     </li><li> The sales tax: The sales tax is 9.25%. Only two decimal
+		    points should be displayed.
+	     </li><li> The total cost: The total cost is the sum of the cost of
+		    the flavors and the sales tax. Only two decimal points
+		    should be displayed.
+	     </li></ol>
+	</li></ul>
+	<p>
+	Here is some useful information for both this problem and the following problem:
+	</p><ol>
+	<li> Here are some <a href="http://www.cs.utk.edu/%7Ebvz/cs460/hw/hw5/snapshots.html">snapshots</a> of what your pages might look like.
+        </li><li> Here are some frequent <a href="http://www.cs.utk.edu/%7Ebvz/cs460/hw/hw5/errors.html">errors</a> that will cause the brower to
+	     tell you that you can't run your cgi script.
+	</li><li> Here are some detailed directions to use for storing and testing your
+	Perl .cgi scripts:
+	<p>
+	</p><ol>
+	<li> Create a cgi-bin subdirectory in your www-home directory
+	</li><li> Put your perl .cgi scripts in the cgi-bin directory. Make sure they end with the extension .cgi rather than .pl.
+	</li><li>
+Make the scripts world readable and executable. The easiest way to do
+that is to use "chmod 0755 filename.cgi" where filename is the filename
+of your .cgi script. </li><li> The URL for reaching your scripts should be
+"http://web.eecs.utk.edu/~your_user_id/cgi-bin/filename.cgi". You will
+put this URL in the action attribute of your form element. </li><li> You may also need to access your initial web page (i.e.,
+icecream.html), by typing in web.eecs.utk.edu/ and the path to your
+icecream.html file. </li></ol>
+        </li></ol>
+	<p>
+     
+</p><p>
+</p></li><li> (<b>20 points</b>) You are going to modify the above problem by saving the
+        order information, rather than immediately displaying a confirmation page.
+        When the user hits the submit button for the order page, you will generate
+        a dynamic web page that asks the user for credit card information. When the
+        user provides the credit card information, you will generate a second dynamic
+        web page that echos the order information, the credit card information, and 
+        thanks the user for the order. Here are some
+        <a href="http://www.cs.utk.edu/%7Ebvz/cs460/hw/hw5/snapshots.html">screen snapshots</a> that illustrate the order sequence.
+	The credit card information should show
+	the last four digits of the credit card with *'s for the first 12 digits.
+	The credit card number should be formatted as '****-****-****-3685'. Do
+	not worry about type-checking the data. 
+	<p>
+	Here are specific instructions for this problem:
+	</p><p>
+	</p><ol>
+	<li> Write a cgi script, named <b>icecream_h.cgi</b>
+             that uses hidden fields to 1) save 
+	     the information entered on the first web form (the order form), 
+	     and 2) dynamically generates a credit card form that
+	     contains the following widgets:
+     <p>
+     </p><ol>
+     <li> select between MasterCard, Visa, and American Express. Make MasterCard
+          be the default selection.
+     </li><li> enter a credit card number using a protected password type field. Tell
+          the user to enter the credit card number as consecutive digits without
+	  spaces or dashes.
+     </li><li> select an expiration date from a month menu with the months January
+          through December and a year menu with the years 2008 through 2012.
+	  Make January and 2008 be the default selections for these menus.
+     </li><li> submit the form.
+     </li></ol>
+     <p>
+       </p></li><li> Copy your <tt>icecream.html</tt> file from problem 3, rename it
+	    <b>icecream_h.html</b>, and make its action attribute call <b>icecream_h.cgi</b>.
+       <p>
+       </p></li><li> Finish up by writing a Perl cgi script named <b>icecream-hidden.cgi</b> 
+	 that generates an order confirmation page that
+	 repeats the order information, the credit card information, and thanks
+	 the customer for the order. 
+	 <b>icecream-hidden.cgi</b> should use the hidden fields stored in the
+	 credit card form to retrieve the order
+	 information.
+     <p>
+       </p></li><li> Now repeat the above steps, except use cookies instead of hidden fields. Name
+     your files <b>icecream_c.html</b>, <b>icecream_c.cgi</b>, and 
+     <b>icecream-cookie.cgi</b>. <b>icecream_c.cgi</b> will be the action for
+     <b>icecream_c.html</b> and it will use cookies to store the order information.
+     <b>icecream-cookie.cgi</b> will be the action for the credit card page and it
+     will generate the confirmation page. It should
+     use the cookies to retrieve the order information.
+     </li></ol>
+<p>
+</p></li><li> <b>(20 points)</b> Write a perl script named <tt>backup.perl</tt> that takes the name of
+     a directory as a command line argument and moves all files that end with
+     a tilde (~) to a file in that directory named <tt>backup</tt>. If 
+     the <tt>backup</tt> directory does not already exist then create the
+     <tt>backup</tt> directory. Your script should check to make sure that
+     the directory for which backups are being requested is a valid directory
+     and print an appropriate error message if it is not. As an example, suppose
+     I have a directory named <tt>/home/bvz/cs594/notes</tt> that produces
+     the following <tt>ls</tt> listing:
+     <pre>#perl2.html#            perl23.html~            perlsystem.html~
+perl1.html              perlfile.html           perlweb.html
+perl1.html~             perlfile.html~          perlweb.html~
+perl2.html              perlsys.html            references.html
+perl23.html             perlsys.html~           references.html~
+     </pre>
+     After running <tt>backup.perl</tt> on this directory, it should produce
+     the following <tt>ls</tt> listing:
+     <pre>backup           perl1.html      perl23.html     perlsys.html    references.html
+#perl2.html#     perl2.html      perlfile.html   perlweb.html
+     </pre>
+     and <tt>backup</tt> should produce the listing:
+     <pre>perl1.html~             perlsys.html~           references.html~
+perl23.html~            perlsystem.html~
+perlfile.html~          perlweb.html~
+     </pre>
+</li><li> <b>(20 points)</b> Write a perl script named <tt>count_bytes</tt> that takes a directory
+name as a command-line argument and prints the size of each .perl file in
+both that directory and recursively in any sub-directories. For example:
+<xmp>
+UNIX&gt; perl count_bytes /Users/bvz
+/Users/bvz/rewrite.perl: 704
+/Users/bvz/animation/lighten.perl: 5888
+/Users/bvz/animation/darken.perl: 1192
+/Users/bvz/cs594/notes/example.perl: 1802
+</xmp>
+Although you can keep track of the directory path yourself, you might find
+it easier to use the <tt>cwd</tt> command from the Perl Cwd module to
+print the current directory path. You should also take care that when you
+finish searching the current directory that you <tt>chdir</tt> back to the
+parent directory or your recursive routine will not produce the desired results.
+For example, when you finish searching <tt>/Users/bvz/animation</tt> you
+need to restore the directory to <tt>/Users/bvz</tt>.
+</li></ol>
+</body></html>

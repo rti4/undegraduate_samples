@@ -1,0 +1,27 @@
+David Baldwin
+
+1. The finalize method is an inappropriate way to implement the destructor method of C++.
+	One reason is that Java finalize method, is because there is no guarantee it will be invoked at the desired moment. In fact, it is only executed when the "garbage collector"
+	reclaims that particular objects memory. 
+
+2. Virtual machine is a piece of software that acts as seperate machine for a program.
+	For example all Java programs are interpreted using a virtual machine.  Java virtual machine converts Java programs into bytecode. The Java Virtual Machine (JVM)
+	will correctly interpret a Java program regardless of the operating system using the virtual machine. 
+	
+3. final int MARCH= 3; 
+
+4. 	a. 
+		public enum ChineseZodiac{
+			Rat, Bull, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Cock, Dog, Pig;
+		}
+		
+	b. 
+		ChineseZodiac year = ChineseZodiac.Rabbit;
+
+5.
+	primitives are passed by value, and so there is no way to write a subroutine that will swap the copied values rather than the parameters of the called function. 
+	More generally, in Java, no subroutine can ever change the values stored in variables that is passed to the subroutine as an actual parameter.
+	
+	
+	
+	
